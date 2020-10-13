@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace FizzBuzz
 {
     class Program
@@ -30,8 +31,9 @@ namespace FizzBuzz
                 {
                     output += i;
                 }
+
                 Console.WriteLine(output);
-                
+
             }
         }
     }
