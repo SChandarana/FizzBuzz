@@ -13,14 +13,12 @@ namespace FizzBuzz
 
         static void Run()
         {
-            
             for (int i = 1; i < 300; i++)
             {
-                List<string> output = new List<string>();
+                var output = new List<string>();
                 if (i % 3 == 0)
                 {
                     output.Add("Fizz");
-
                 }
 
                 if (i % 5 == 0)
@@ -41,18 +39,16 @@ namespace FizzBuzz
 
                 if (i % 13 == 0)
                 {
-                    var firstB = output.FirstOrDefault(s => s.StartsWith("B"));
-                    if (firstB == null)
+                    var firstB = output.FindIndex(s => s.StartsWith("B"));
+                    if (firstB == -1)
                     {
                         output.Add("Fezz");
                     }
                     else
                     {
-                        output.Insert(output.IndexOf(firstB), "Fezz");
+                        output.Insert(firstB, "Fezz");
                     }
-
                 }
-
 
                 if (i % 17 == 0)
                 {
@@ -64,12 +60,7 @@ namespace FizzBuzz
                     output.Add(i.ToString());
                 }
 
-                foreach (var word in output)
-                {
-                    Console.Write(word);
-                }
-                Console.WriteLine();
-
+                Console.WriteLine(String.Join("", output));
             }
         }
     }
